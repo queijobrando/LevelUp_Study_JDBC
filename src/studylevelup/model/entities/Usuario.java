@@ -38,6 +38,7 @@ public class Usuario extends Pessoa{
     public String toString() {
         return "Perfil: " +
                 "\nNome: " + getNome() +
+                "\nIdade: " + getIdade(acharNomeBanco(getNome())) +
                 "\nEmail: " + getEmail() +
                 "\nNivel=" + nivel +
                 "\nPontos=" + pontos
