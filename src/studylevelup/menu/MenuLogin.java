@@ -1,16 +1,22 @@
 package studylevelup.menu;
 
+import studylevelup.model.entities.Usuario;
 import studylevelup.services.PastaCadastrosService;
 
+import javax.xml.crypto.Data;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class MenuLogin extends Menu {
     PastaCadastrosService path = new PastaCadastrosService();
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    Scanner sc = new Scanner(System.in);
 
-    public String inserirEntradasLogin(Scanner scanner) {
+    public void inserirEntradasLogin(Scanner scanner) {
         System.out.print("\nDigite seu usuario: ");
         String inserirusuario = scanner.nextLine();
         System.out.print("Digite a senha: ");
@@ -21,18 +27,25 @@ public class MenuLogin extends Menu {
             while ((linha = br.readLine()) != null) {
                 String[] espacos = linha.split(",");
                 String nome = espacos[0];
+                String email = espacos[1];
+                String data = espacos[2];
                 String nomeUsuario = espacos[3];
                 String senhaUsuario = espacos[4];
 
                 if (nomeUsuario.equals(inserirusuario) && senhaUsuario.equals(inserirsenha)) {
-                    System.out.println("Senha Correta!");
-                    return nome;
+                    try {
+                        Usuario usuariologado = new Usuario(nome, email, sdf.parse(data), nomeUsuario, senhaUsuario );
+                        MenuLogado menuLogado = new MenuLogado(usuariologado);
+                        menuLogado.inserirEntradas2(usuariologado, usuariologado.getNome());
+                    }
+                    catch (ParseException e){
+                        e.printStackTrace();
+                    }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("Senha Incorreta! Tente novamente!");
-        return null;
     }
 }

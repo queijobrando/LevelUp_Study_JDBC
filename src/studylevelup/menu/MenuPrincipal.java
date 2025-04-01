@@ -1,10 +1,8 @@
 package studylevelup.menu;
 
+import studylevelup.model.entities.Usuario;
 import studylevelup.services.PastaCadastrosService;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuPrincipal extends Menu {
@@ -24,7 +22,7 @@ public class MenuPrincipal extends Menu {
         System.out.print("\nInsira a opção: ");
     }
 
-    public String inserirEntradas2(Scanner scanner) {
+    public Usuario inserirEntradas2(Scanner scanner) {
         do {
             mostrarOpcoes();
             try {
@@ -33,14 +31,7 @@ public class MenuPrincipal extends Menu {
 
                 switch (opcao) {
                     case 1 -> menucadastro.inserirEntradas(scanner);
-                    case 2 -> {
-                        String usuario = menuLogin.inserirEntradasLogin(scanner);
-
-                        if (usuario != null){
-                            System.out.println("Login efetuado com sucesso!");
-                            return usuario;
-                        }
-                    }
+                    case 2 -> menuLogin.inserirEntradasLogin(scanner);
                     default -> System.out.println("Erro: Insira uma opção válida!");
                 }
             }

@@ -16,17 +16,10 @@ public class ProgramaPrincipal {
         System.out.println("Seja bem vindo(a)!");
 
         gerarpasta.geraPasta();
-        String entrada = chamarMenu.inserirEntradas2(sc);
+        chamarMenu.inserirEntradas2(sc);
 
-        if (entrada == null){
-            System.out.println("Encerrando programa...");
-            sc.close();
-        } else {
-            System.out.println("SEJA BEM VINDO(A)"+entrada);
-            Usuario usuariologado = new Usuario();
-            System.out.println(entrada);
-            System.out.println(usuariologado.getIdade(entrada));
-        }
+        System.out.println("Encerrando programa...");
+        sc.close();
 
 
     }
