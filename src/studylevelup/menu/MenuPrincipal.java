@@ -32,6 +32,7 @@ public class MenuPrincipal extends Menu {
                 switch (opcao) {
                     case 1 -> menucadastro.inserirEntradas(scanner);
                     case 2 -> menuLogin.inserirEntradasLogin(scanner);
+                    case 3 -> System.out.println("\n");
                     default -> System.out.println("Erro: Insira uma opção válida!");
                 }
             }

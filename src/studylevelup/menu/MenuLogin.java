@@ -37,15 +37,17 @@ public class MenuLogin extends Menu {
                         Usuario usuariologado = new Usuario(nome, email, sdf.parse(data), nomeUsuario, senhaUsuario );
                         MenuLogado menuLogado = new MenuLogado(usuariologado);
                         menuLogado.inserirEntradas2(usuariologado, usuariologado.getNome());
+                        break;
                     }
                     catch (ParseException e){
                         e.printStackTrace();
                     }
+                } else {
+                    System.out.println("Senha Incorreta! Tente novamente!");
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Senha Incorreta! Tente novamente!");
     }
 }

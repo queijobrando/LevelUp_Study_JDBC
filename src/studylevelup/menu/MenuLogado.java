@@ -42,7 +42,7 @@ public class MenuLogado extends Menu{
                     case 3 -> {
                         System.out.println("Saindo...");
                         usuario = null; //apaga da memoria o usuario logado para não ocupar espaço
-                        chamarMenu.inserirEntradas2(sc);
+                        return;
                     }
                     default -> System.out.println("Erro: Insira uma opção válida!");
                 }
