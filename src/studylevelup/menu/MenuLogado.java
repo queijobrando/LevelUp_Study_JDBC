@@ -18,8 +18,8 @@ public class MenuLogado extends Menu{
         this.usuario = usuario;
     }
 
-    public void mostrarOpcoes2(String nome) {
-        System.out.println("SEJA BEM VINDO(A) "+nome);
+    public void mostrarOpcoes2(Usuario usuario) {
+        System.out.println("SEJA BEM VINDO(A) "+usuario.getNome());
         System.out.println("""
                 \n1.Perfil
                 \n2.Tarefas
@@ -28,20 +28,20 @@ public class MenuLogado extends Menu{
         System.out.print("\nInsira a opção: ");
     }
 
-    public void inserirEntradas2(Usuario usuario, String nome) {
+    public void inserirEntradas2(Usuario usuario) {
         do {
             this.usuario = usuario;
-            mostrarOpcoes2(nome);
+            mostrarOpcoes2(usuario);
             try {
 
                 opcao = Integer.parseInt(sc.nextLine());
 
                 switch (opcao){
-                    case 1 -> chamarMenu.inserirEntradas2(sc);
-                    case 2 -> chamarMenu.inserirEntradas2(sc);
+                    case 1 -> mostrarPerfil(sc);
+                    case 2 -> System.out.println("EM BREVE");
                     case 3 -> {
                         System.out.println("Saindo...");
-                        usuario = null; //apaga da memoria o usuario logado para não ocupar espaço
+                        this.usuario = null; //apaga da memoria o usuario logado para não ocupar espaço
                         return;
                     }
                     default -> System.out.println("Erro: Insira uma opção válida!");
@@ -51,5 +51,24 @@ public class MenuLogado extends Menu{
                 System.out.println("Erro: Entrada inválida! Digite um número!");
             }
         }while (opcao != 3);
+    }
+
+    public void mostrarPerfil(Scanner scan){
+        do {
+            try {
+                System.out.println(usuario);
+                System.out.println("\n3.Voltar");
+                System.out.println("\nInsira a opção: ");
+                int voltar = Integer.parseInt(scan.nextLine());
+                if (voltar == 3){
+                    return;
+                }else {
+                    System.out.println("Erro: Insira uma opção válida!");
+                }
+            }
+            catch (NumberFormatException e){
+                System.out.println("Erro: Entrada inválida! Digite um número!");
+            }
+        }while (true);
     }
 }
