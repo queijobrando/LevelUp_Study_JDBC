@@ -30,3 +30,19 @@ bin/
 
 ##bancodedados##
 cadastros.txt
+
+# Pasta de configuração do IntelliJ
+.idea/
+
+# Arquivos de compilação
+*.class
+
+# Dependências do Maven
+target/
+
+# Dependências do Gradle
+.gradle/
+build/
+
+# Arquivos de cache do sistema
+*.iml
