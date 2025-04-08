@@ -52,17 +52,19 @@ public class UsuarioDaoJDBC implements UsuarioDao {
     }
 
     @Override
-    public Usuario acharPorId(Integer id) {
+    public Usuario acharLogin(String nickname, String senha) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement(
                  "SELECT usuario.* "
                     + "FROM usuario "
-                    + "WHERE usuario.Id = ?"
+                    + "WHERE NickName = ? "
+                    + "AND Senha = ?"
             );
 
-            ps.setInt(1, id);
+            ps.setString(1, nickname);
+            ps.setString(2, senha);
             rs = ps.executeQuery();
             if (rs.next()){
                 Usuario usuario = new Usuario(rs.getInt("Id"), rs.getString("Nome"), rs.getString("Email"), rs.getDate("DataNascimento"), rs.getString("NickName"), rs.getString("Senha"));

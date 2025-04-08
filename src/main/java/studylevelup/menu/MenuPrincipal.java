@@ -1,7 +1,6 @@
 package studylevelup.menu;
 
 import studylevelup.model.entities.Usuario;
-import studylevelup.services.PastaCadastrosService;
 
 import java.util.Scanner;
 
@@ -10,7 +9,6 @@ public class MenuPrincipal extends Menu {
 
     MenuCadastro menucadastro = new MenuCadastro();
     MenuLogin menuLogin = new MenuLogin();
-    PastaCadastrosService path = new PastaCadastrosService();
 
     @Override
     public void mostrarOpcoes() {

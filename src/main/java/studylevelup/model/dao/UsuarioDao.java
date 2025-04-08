@@ -7,6 +7,6 @@ import java.util.List;
 public interface UsuarioDao {
     void inserir (Usuario usuario);
     void update (Usuario usuario);
-    Usuario acharPorId (Integer id);
+    Usuario acharLogin (String nome, String senha);
     List<Usuario> exibirTodos();
 }
