@@ -3,27 +3,19 @@ package studylevelup.model.entities;
 import java.util.Date;
 
 public class Usuario extends Pessoa{
+    private Integer id;
     private String nickname;
     private String senha;
-    private Integer nivel;
-    private Integer pontos;
 
     public Usuario(){
 
     }
 
-    public Usuario(String nome, String email, Date dataNascimento, String nickname, String senha) {
+    public Usuario(Integer id, String nome, String email, Date dataNascimento, String nickname, String senha) {
         super(nome, email, dataNascimento);
         this.nickname = nickname;
         this.senha = senha;
-    }
-
-    public Integer getNivel() {
-        return nivel;
-    }
-
-    public Integer getPontos() {
-        return pontos;
+        this.id = id;
     }
 
     public String getNickname() {
@@ -39,9 +31,7 @@ public class Usuario extends Pessoa{
         return "Perfil: " +
                 "\nNome: " + getNome() +
                 "\nIdade: " + getIdade(acharNomeBanco(getNome())) +
-                "\nEmail: " + getEmail() +
-                "\nNivel=" + nivel +
-                "\nPontos=" + pontos
+                "\nEmail: " + getEmail()
                 ;
     }
 }

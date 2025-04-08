@@ -1,11 +1,12 @@
 package studylevelup.model.dao;
 
+import studylevelup.bancodedados.DB;
 import studylevelup.model.dao.impl.UsuarioDaoJDBC;
 
 public class DaoFactory {
 
     public static UsuarioDao criarUsuarioDao(){
-        return new UsuarioDaoJDBC();
+        return new UsuarioDaoJDBC(DB.getConnection());
 
         /*
         CREATE TABLE usuario (
