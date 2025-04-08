@@ -5,8 +5,8 @@ import java.util.Date;
 public class Usuario extends Pessoa{
     private String nickname;
     private String senha;
-    private Integer nivel = 0;
-    private Integer pontos = 0;
+    private Integer nivel;
+    private Integer pontos;
 
     public Usuario(){
 
