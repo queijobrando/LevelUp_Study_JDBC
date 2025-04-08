@@ -11,6 +11,12 @@ public class Usuario extends Pessoa{
 
     }
 
+    public Usuario(String nome, String email, Date dataNascimento, String nickname, String senha) {
+        super(nome, email, dataNascimento);
+        this.nickname = nickname;
+        this.senha = senha;
+    }
+
     public Usuario(Integer id, String nome, String email, Date dataNascimento, String nickname, String senha) {
         super(nome, email, dataNascimento);
         this.nickname = nickname;

@@ -20,7 +20,30 @@ public class UsuarioDaoJDBC implements UsuarioDao {
 
     @Override
     public void inserir(Usuario usuario) {
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(
+                    "INSERT INTO usuario "
+                            +"(Nome, Email, DataNascimento, NickName, Senha) "
+                            +"VALUES "
+                            +"(?, ?, ?, ?, ?)");
 
+            ps.setString(1, usuario.getNome());
+            ps.setString(2, usuario.getEmail());
+            ps.setDate(3, new java.sql.Date(usuario.getDataNascimento().getTime()));
+            ps.setString(4, usuario.getNickname());
+            ps.setString(5, usuario.getSenha());
+
+            ps.executeUpdate();
+
+            System.out.println("Usuario adicionado com sucesso!");
+        }
+        catch (SQLException e){
+            throw new DbException(e.getMessage());
+        }
+        finally {
+            DB.closeStatement(ps);
+        }
     }
 
     @Override

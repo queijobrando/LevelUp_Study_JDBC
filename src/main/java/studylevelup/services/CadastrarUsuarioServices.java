@@ -1,5 +1,7 @@
 package studylevelup.services;
 
+import studylevelup.model.dao.DaoFactory;
+import studylevelup.model.dao.UsuarioDao;
 import studylevelup.model.entities.Usuario;
 
 import java.io.BufferedWriter;
@@ -12,7 +14,7 @@ import java.util.Scanner;
 
 public class CadastrarUsuarioServices {
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    PastaCadastrosService path = new PastaCadastrosService();
+    UsuarioDao usuarioDao = DaoFactory.criarUsuarioDao();
 
     public String cadastrarNome(Scanner scanner){
         while (true) {
@@ -86,7 +88,6 @@ public class CadastrarUsuarioServices {
     }
 
     public void cadastrarUsuario(Scanner scanner) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path.getCadastrosPath(), true))) {
             String nome = cadastrarNome(scanner);
             String email = cadastrarEmail(scanner);
             Date data = cadastrarDataNascimento(scanner);
@@ -94,12 +95,6 @@ public class CadastrarUsuarioServices {
             String senha = cadastrarSenha(scanner);
 
             Usuario novousuario = new Usuario(nome, email, data, usuario, senha);
-
-            bw.write(novousuario.getNome() + "," + novousuario.getEmail() + "," + sdf.format(novousuario.getDataNascimento()) + "," + novousuario.getNickname() + "," + novousuario.getSenha());
-            bw.newLine();
-        }
-        catch (IOException e){
-            System.out.println("Erro ao salvar informações");
-        }
+            usuarioDao.inserir(novousuario);
     }
 }
