@@ -1,12 +1,11 @@
 package studylevelup.services;
 
+import studylevelup.bancodedados.DB;
 import studylevelup.model.dao.DaoFactory;
 import studylevelup.model.dao.UsuarioDao;
 import studylevelup.model.entities.Usuario;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

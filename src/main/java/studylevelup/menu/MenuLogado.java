@@ -9,7 +9,7 @@ public class MenuLogado extends Menu{
     public Usuario usuario;
 
     Scanner sc = new Scanner(System.in);
-    MenuPrincipal chamarMenu = new MenuPrincipal();
+    MenuTarefas chamarMenuTarefa = new MenuTarefas();
 
     public MenuLogado() {
     }
@@ -38,7 +38,7 @@ public class MenuLogado extends Menu{
 
                 switch (opcao){
                     case 1 -> mostrarPerfil(sc);
-                    case 2 -> System.out.println("EM BREVE");
+                    case 2 -> chamarMenuTarefa.inserirEntradas2(usuario);
                     case 3 -> {
                         System.out.println("Saindo...");
                         this.usuario = null; //apaga da memoria o usuario logado para não ocupar espaço

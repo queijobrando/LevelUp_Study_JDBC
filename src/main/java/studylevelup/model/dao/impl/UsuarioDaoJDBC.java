@@ -41,9 +41,6 @@ public class UsuarioDaoJDBC implements UsuarioDao {
         catch (SQLException e){
             throw new DbException(e.getMessage());
         }
-        finally {
-            DB.closeStatement(ps);
-        }
     }
 
     @Override
@@ -74,10 +71,6 @@ public class UsuarioDaoJDBC implements UsuarioDao {
         }
         catch (SQLException e){
             throw new DbException(e.getMessage());
-        }
-        finally {
-            DB.closeStatement(ps);
-            DB.closeResultSet(rs);
         }
     }
 

@@ -1,14 +1,10 @@
 package studylevelup.menu;
 
+import studylevelup.bancodedados.DB;
 import studylevelup.model.dao.DaoFactory;
 import studylevelup.model.dao.UsuarioDao;
 import studylevelup.model.entities.Usuario;
 
-import javax.xml.crypto.Data;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 

@@ -32,6 +32,10 @@ public class Usuario extends Pessoa{
         return senha;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Perfil: " +
