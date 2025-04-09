@@ -25,6 +25,7 @@ Id int(11) NOT NULL AUTO_INCREMENT,
 Nome varchar(60) NOT NULL,
 Descricao varchar(100),
 IdUsuario int(11) NOT NULL,
+Status ENUM('Ativa', 'Concluída') DEFAULT 'Ativa',
 PRIMARY KEY (Id),
 FOREIGN KEY (IdUsuario) REFERENCES usuario (Id)
 );

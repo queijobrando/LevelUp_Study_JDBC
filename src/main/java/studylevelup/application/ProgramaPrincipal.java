@@ -1,7 +1,6 @@
 package studylevelup.application;
 
 import studylevelup.menu.MenuPrincipal;
-import studylevelup.model.entities.Usuario;
 
 import java.util.Scanner;
 
