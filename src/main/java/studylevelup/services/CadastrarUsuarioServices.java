@@ -21,9 +21,9 @@ public class CadastrarUsuarioServices {
             System.out.print("Qual o seu nome: ");
             String nome = scanner.nextLine();
 
-            if (nome.isEmpty()){
+            if (nome.trim().isEmpty()){
                 System.out.println("Insira um nome!");
-            } else if (!nome.matches("[a-zA-Z]+")){
+            } else if (!nome.matches("[a-zA-Z ]+")){
                 System.out.println("O nome deve conter apenas letras!");
             } else{
                 return nome;

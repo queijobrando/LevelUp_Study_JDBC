@@ -63,7 +63,7 @@ public class UsuarioDaoJDBC implements UsuarioDao {
                     + "AND Senha = ?"
             );
 
-            ps.setString(1, nickname);
+            ps.setString(1, nickname.trim());
             ps.setString(2, senha);
             rs = ps.executeQuery();
             if (rs.next()){
