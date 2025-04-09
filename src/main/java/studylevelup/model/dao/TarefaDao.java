@@ -8,5 +8,5 @@ import java.util.List;
 public interface TarefaDao {
     void inserir (Tarefa tarefa, Usuario usuario);
     void excluir (Tarefa tarefa);
-    List<Tarefa> exibirTodas();
+    List<Tarefa> exibirTodas(Usuario usuario);
 }

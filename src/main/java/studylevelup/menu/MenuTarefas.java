@@ -1,5 +1,7 @@
 package studylevelup.menu;
 
+import studylevelup.model.dao.DaoFactory;
+import studylevelup.model.dao.TarefaDao;
 import studylevelup.model.entities.Usuario;
 import studylevelup.services.CadastrarTarefaService;
 
@@ -11,6 +13,7 @@ public class MenuTarefas extends Menu {
 
     Scanner sc = new Scanner(System.in);
     CadastrarTarefaService cadastrarTarefa = new CadastrarTarefaService();
+    TarefaDao tarefadao = DaoFactory.criarTarefaJDBC();
 
     @Override
     public void mostrarOpcoes() {
@@ -33,7 +36,7 @@ public class MenuTarefas extends Menu {
 
                 switch (opcao){
                     case 1 -> cadastrarTarefa.cadastrarTarefa(sc, usuario);
-                    case 2 -> System.out.println("EM BREVE");
+                    case 2 -> System.out.println(tarefadao.exibirTodas(usuario));
                     case 3 -> {
                         return;
                     }

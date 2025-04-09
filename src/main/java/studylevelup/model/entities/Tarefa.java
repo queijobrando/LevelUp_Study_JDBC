@@ -35,6 +35,22 @@ public class Tarefa {
         return usuario;
     }
 
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
         return "Tarefa: " +
